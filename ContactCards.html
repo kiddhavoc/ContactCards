@@ -1,0 +1,115 @@
+<html>
+<head>
+	<title>Contact Cards</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            $(document).on('click', 'div', function(){
+                var a = $('#first_name').val();
+                var b = $('#last_name').val();
+                var c = $('#desc').val();
+                $(".contactcards2").html("<p>"+c+"</p>");
+                $(".contactcards").html("<p>"+a+" "+b+"</p>");
+                var temp = $(this).attr("class");
+                var x = $(this).attr("alt-class");
+                $(this).attr("class", x);
+                $(this).attr("alt-class", temp);
+            });
+
+            $('#rawr').submit(function(){
+                var a = $('#first_name').val();
+                var b = $('#last_name').val();
+                // var c = $('#desc').val();
+                $(".cards").append("<div class='contactcards' alt-class='contactcards2'><p>"+a+" "+b+"</p></div>");
+                
+
+                return false;
+            });
+
+            $('.contactcards').click(function(){
+                var a = $('#first_name').val();
+                var b = $('#last_name').val();
+                var c = $('#desc').val();
+                $(".contactcards2").html("<p>"+c+"</p>");
+                $(".contactcards").html("<p>"+a+" "+b+"</p>");
+                var temp = $(this).attr("class");
+                var x = $(this).attr("alt-class");
+                $(this).attr("class", x);
+                $(this).attr("alt-class", temp);
+            });
+        });
+        
+    </script>
+    <style>
+        form{
+            width: 25%;
+            height: 40%;
+            display: inline-block;
+            vertical-align: top;
+
+        }
+        .names{
+            width: 98%;
+            height: 10%;
+            display: block;
+            margin: 8% 0% 3% 0%;
+        }
+        .desc{
+            width: 98%;
+            height: 50%;
+            margin: 8% 0% 3% 0%;
+        }
+        
+        button{
+            width: 20%;
+            height: 8%;
+
+        }
+
+        .cards{
+            width: 70%;
+            height: 70%;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .contactcards{
+            width: 40%;
+            height: 30%;
+            border: 1pt solid black;
+            font-size: 14pt;
+            text-align: center;
+        }
+        .contactcards2{
+            width: 40%;
+            height: 30%;
+            border: 1pt solid black;
+            font-size: 10pt;
+            text-align: center;
+        }
+
+    </style>
+<body>
+    
+    <form id="rawr">
+        <div class="names">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name">
+        </div>
+        <div class="names">
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name">
+        </div>
+        <div class="description">
+            <label for="desc">Description:</label>
+            <input type="text" id="desc" name="desc" value="Enter description">
+        </div>
+        <button type="submit">Add User</button>
+    </form>
+
+    <div class="cards">
+    </div>
+
+
+</body>
